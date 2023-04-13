@@ -41,22 +41,6 @@ public class EmployeeController {
     }
 
     @PutMapping("/employee/{id}")
-    public Employee putEmployee(@PathVariable("id") final Long id, @RequestBody Employee employee) {
-        Optional<Employee> emp = employeeService.getEmployee(id);
-        if (emp.isPresent()) {
-            Employee employeExistant = emp.get();
-
-            String firstName = employee.getFirstName();
-            if (firstName != null) employeExistant.setFirstName(firstName);
-            String lastName = employee.getLastName();
-            if (lastName != null) employeExistant.setLastName((lastName));
-            String mail = employee.getMail();
-            if (mail != null) employeExistant.setMail((mail));
-            String password = employee.getPassword();
-            if (password != null) employeExistant.setPassword((password));
-
-            employeeService.saveEmployee(employeExistant);
-            return employeExistant;
-        } else return null;
-    }
+    public Employee putEmployee(@RequestBody Employee employee) {
+       return employeeService.majEmployee(employee);
 }
