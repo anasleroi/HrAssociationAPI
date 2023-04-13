@@ -63,4 +63,19 @@ public class EmployeeService {
     }
 	
 	public Employee majEmployee(final Long id , @RequestBody Employee employee){
+		Employee majEmp=getEmployee(id);
+		if(majEmp!= null){
+			String firstName=employee.getFirstName();
+			if (firstName!=null){majEmp.setFirstName(firstName);}
+			String lastName=employee.getLastName();
+			if (lastName!=null){majEmp.setLastName(lastName);}
+			String mail=employee.getMail();
+			if(mail!=null){majEmp.setMail(mail);}
+			String password=employee.getPassword();
+			if(password!=null){majEmp.setPassword(password);}
+			saveEmployee(majEmp);
+			return majEmp;
+		}else return null;
+		
+	}
 }
