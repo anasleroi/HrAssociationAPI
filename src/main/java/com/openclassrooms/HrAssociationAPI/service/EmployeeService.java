@@ -61,4 +61,6 @@ public class EmployeeService {
             return creatEmploye;
         } else return null;
     }
+	
+	public Employee majEmployee(final Long id , @RequestBody Employee employee){
 }
