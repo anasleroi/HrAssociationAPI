@@ -1,11 +1,10 @@
-package com.openclassrooms.HrAssociationAPI.service;
+package com.openclassrooms.hrassociationapi.service;
 
-import com.openclassrooms.HrAssociationAPI.model.Employee;
-import com.openclassrooms.HrAssociationAPI.repository.EmployeeRepository;
+import com.openclassrooms.hrassociationapi.model.Employee;
+import com.openclassrooms.hrassociationapi.repository.EmployeeRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
@@ -28,8 +27,7 @@ public class EmployeeService {
     }
 
     public Employee saveEmployee(Employee employee) {
-        Employee savedEmployee = employeeRepository.save(employee);
-        return savedEmployee;
+        return employeeRepository.save(employee);
     }
 
     public Employee getByMail(String mail){
@@ -61,10 +59,13 @@ public class EmployeeService {
             return creatEmploye;
         } else return null;
     }
-	
-	public Employee majEmployee(final Long id , @RequestBody Employee employee){
-		Employee majEmp=getEmployee(id);
-		if(majEmp!= null){
+	public Employee getByid(Long id)
+    {
+        return employeeRepository.findEmployeeById(id);
+    }
+	public Employee majEmployee(Employee employee){
+		Employee majEmp=getByid(employee.getId());
+		if(majEmp!=null){
 			String firstName=employee.getFirstName();
 			if (firstName!=null){majEmp.setFirstName(firstName);}
 			String lastName=employee.getLastName();

@@ -1,7 +1,7 @@
-package com.openclassrooms.HrAssociationAPI.controller;
+package com.openclassrooms.hrassociationapi.controller;
 
-import com.openclassrooms.HrAssociationAPI.model.Employee;
-import com.openclassrooms.HrAssociationAPI.service.EmployeeService;
+import com.openclassrooms.hrassociationapi.model.Employee;
+import com.openclassrooms.hrassociationapi.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +25,7 @@ public class EmployeeController {
 
     /*TEST*/
     @PostMapping("employee")
-    public Employee requestCreateEmployee(@RequestBody Employee employee){
+    public Employee requestCreateEmployee(@RequestBody Employee employee) {
         return employeeService.createEmployee(employee);
     }
     /*TEST*/
@@ -33,14 +33,11 @@ public class EmployeeController {
     @GetMapping("/employee/{id}")
     public Employee getEmployee(@PathVariable("id") final Long id) {
         Optional<Employee> employee = employeeService.getEmployee(id);
-        if (employee.isPresent()) {
-            return employee.get();
-        } else {
-            return null;
-        }
+        return employee.orElse(null);
     }
 
     @PutMapping("/employee/{id}")
     public Employee putEmployee(@RequestBody Employee employee) {
-       return employeeService.majEmployee(employee);
+        return employeeService.majEmployee(employee);
+    }
 }

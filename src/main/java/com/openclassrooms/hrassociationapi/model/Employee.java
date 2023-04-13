@@ -1,4 +1,4 @@
-package com.openclassrooms.HrAssociationAPI.model;
+package com.openclassrooms.hrassociationapi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

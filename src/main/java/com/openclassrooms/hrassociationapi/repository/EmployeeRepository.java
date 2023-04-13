@@ -1,6 +1,6 @@
-package com.openclassrooms.HrAssociationAPI.repository;
+package com.openclassrooms.hrassociationapi.repository;
 
-import com.openclassrooms.HrAssociationAPI.model.Employee;
+import com.openclassrooms.hrassociationapi.model.Employee;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
     Employee findEmployeeByMail(String mail);
+    Employee findEmployeeById(Long id);
 }
+
