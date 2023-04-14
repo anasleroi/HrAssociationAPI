@@ -26,8 +26,8 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
-    public Employee saveEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public void saveEmployee(Employee employee) {
+         employeeRepository.save(employee);
     }
 
     public Employee getByMail(String mail){
