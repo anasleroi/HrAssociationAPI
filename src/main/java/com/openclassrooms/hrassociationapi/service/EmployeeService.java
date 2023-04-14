@@ -76,7 +76,7 @@ public class EmployeeService {
 			if(password!=null){majEmp.setPassword(password);}
 			saveEmployee(majEmp);
 			return majEmp;
-		}else return null;
+		} return null;
 		
 	}
 }
